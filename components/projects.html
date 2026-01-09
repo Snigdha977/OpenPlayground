@@ -4,52 +4,60 @@
         <span class="section-badge">Explore</span>
         <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
         <p class="section-subtitle">Discover amazing projects built by our community</p>
-        <button id="random-project-btn" class="random-project-btn">
-            <i class="ri-shuffle-line" aria-hidden="true"></i> Random Project
-        </button>
     </div>
 
-    <!-- Search and Sort Controls -->
+    <!-- Search, Sort and View Controls -->
     <div class="controls-wrapper">
-        <div class="search-box">
-            <i class="ri-search-line" aria-hidden="true"></i>
-            <input type="text" id="project-search" placeholder="Search projects..." aria-label="Search projects">
-            <button id="search-clear" class="search-clear" aria-label="Clear search">
-                <i class="ri-close-line" aria-hidden="true"></i>
-            </button>
+        <div class="search-sort-group">
+            <div class="search-box">
+                <i class="ri-search-line"></i>
+                <input type="text" id="project-search" placeholder="Search projects..." aria-label="Search projects">
+            </div>
+            <div class="sort-box">
+                <i class="ri-sort-desc"></i>
+                <select id="project-sort" aria-label="Sort projects">
+                    <option value="default">Default</option>
+                    <option value="az">A → Z</option>
+                    <option value="za">Z → A</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
         </div>
-        <div class="sort-box">
-            <i class="ri-sort-desc" aria-hidden="true"></i>
-            <select id="project-sort" aria-label="Sort projects">
-                <option value="default">Default</option>
-                <option value="az">A → Z</option>
-                <option value="za">Z → A</option>
-                <option value="newest">Newest</option>
-                <option value="rating-high">Highest Rated</option>
-                <option value="rating-low">Lowest Rated</option>
-            </select>
+        <div class="view-toggle">
+            <button id="card-view-btn" class="view-btn active" title="Grid View">
+                <i class="ri-grid-fill"></i>
+            </button>
+            <button id="list-view-btn" class="view-btn" title="List View">
+                <i class="ri-list-check"></i>
+            </button>
         </div>
     </div>
 
     <!-- Category Filters -->
     <div class="category-filter">
         <button class="filter-btn active" data-filter="all">
-            <i class="ri-apps-line" aria-hidden="true"></i> All
+            <i class="ri-apps-line"></i> All
         </button>
         <button class="filter-btn" data-filter="action">
-            <i class="ri-gamepad-line" aria-hidden="true"></i> Action
+            <i class="ri-gamepad-line"></i> Action
         </button>
         <button class="filter-btn" data-filter="strategy">
-            <i class="ri-chess-line" aria-hidden="true"></i> Strategy
+            <i class="ri-chess-line"></i> Strategy
         </button>
         <button class="filter-btn" data-filter="puzzle">
-            <i class="ri-puzzle-line" aria-hidden="true"></i> Puzzle
+            <i class="ri-puzzle-line"></i> Puzzle
         </button>
         <button class="filter-btn" data-filter="utility">
-            <i class="ri-tools-line" aria-hidden="true"></i> Utility
+            <i class="ri-tools-line"></i> Utility
         </button>
         <button class="filter-btn" data-filter="game">
-            <i class="ri-game-line" aria-hidden="true"></i> Game
+            <i class="ri-game-line"></i> Game
+        </button>
+        <button class="filter-btn" data-filter="productivity">
+            <i class="ri-calendar-check-line" aria-hidden="true"></i> Productivity
+        </button>
+        <button class="filter-btn" data-filter="experimental">
+            <i class="ri-flask-line" aria-hidden="true"></i> Experimental
         </button>
     </div>
 
@@ -1306,6 +1314,17 @@
     <div class="projects-show-more">
         <button id="viewMoreProjects" class="view-all-btn" style="display: none;">
             <i class="ri-eye-line"></i> View More Projects
+    <!-- Projects Display -->
+    <div id="projects-grid" class="projects-container"></div>
+    <div id="projects-list" class="projects-list-container" style="display: none;"></div>
+    
+    <!-- Pagination -->
+    <div id="pagination-controls" class="pagination-container"></div>
+
+    <!-- View More / Status (Optional) -->
+    <div id="view-more-container" class="projects-show-more" style="display: none;">
+        <button id="view-more-btn" class="view-all-btn">
+            <i class="ri-eye-line"></i> View More <span id="remaining-count"></span>
         </button>
     </div>
 
