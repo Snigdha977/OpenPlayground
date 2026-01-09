@@ -160,9 +160,8 @@ class ComponentLoader {
         this.initializeSmoothScrolling();
 
         // Initialize project functionality
-        if (window.ProjectManager) {
-            new window.ProjectManager();
-        }
+        // ProjectManager is initialized via 'componentLoaded' event in app.js
+        // to avoid double initialization.
 
         // Initialize contributors
         if (typeof fetchContributors === 'function') {
